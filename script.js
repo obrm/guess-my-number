@@ -14,9 +14,9 @@ const messageColor = color => {
 
 // document.querySelector('.number').textContent = secretNumber;
 
-document.querySelector('.guess').addEventListener('focus', function () {
-  console.log(secretNumber);
-});
+// document.querySelector('.guess').addEventListener('focus', function () {
+//   console.log(secretNumber);
+// });
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
