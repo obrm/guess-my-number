@@ -14,11 +14,11 @@ const changeNumberElement = (width, textContent) => {
   document.querySelector('.number').textContent = textContent;
 };
 
-const setScore = num => {
+const setScoreElement = num => {
   document.querySelector('.score').textContent = num;
 };
 
-const changeCheckButtonState = bool => {
+const disableCheckButton = bool => {
   document.querySelector('.check').disabled = bool;
 };
 
@@ -45,7 +45,7 @@ document.querySelector('.check').addEventListener('click', function () {
       changeBodyBGColor('#60b347');
       changeNumberElement('30rem', secretNumber);
       displayMessage('🎉 Correct number!!!');
-      changeCheckButtonState(true);
+      disableCheckButton(true);
       if (highScore < score) {
         document.querySelector('.highscore').textContent = score;
         highScore = score;
@@ -56,25 +56,25 @@ document.querySelector('.check').addEventListener('click', function () {
         ? displayMessage('📉 Too low!!!')
         : displayMessage('📈 Too High!!!');
       score--;
-      setScore(score);
+      setScoreElement(score);
     }
   } else {
     changeMessageTextColor('#eee');
     score = 0;
-    setScore(score);
+    setScoreElement(score);
     changeBodyBGColor('red');
     displayMessage('💥 You lost the game!');
   }
 });
 
 document.querySelector('.again').addEventListener('click', function () {
-  changeCheckButtonState(false);
+  disableCheckButton(false);
   changeMessageTextColor('#eee');
   changeNumberElement('15rem', '?');
   document.querySelector('.guess').value = '';
   displayMessage('Start guessing...');
   changeBodyBGColor('#222');
-  setScore(20);
+  setScoreElement(20);
   score = 20;
   secretNumber = createRandomNumber();
 });
