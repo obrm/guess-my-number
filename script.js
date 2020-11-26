@@ -35,7 +35,7 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('.highscore').textContent = score;
         highScore = score;
       }
-    } else if (guess != secretNumber) {
+    } else if (guess !== secretNumber) {
       messageColor('#eee');
       guess < secretNumber
         ? displayMessage('📉 Too low!!!')
