@@ -52,9 +52,7 @@ document.querySelector('.check').addEventListener('click', function () {
       }
     } else if (guess !== secretNumber) {
       changeMessageTextColor('#eee');
-      guess < secretNumber
-        ? displayMessage('📉 Too low!!!')
-        : displayMessage('📈 Too High!!!');
+      displayMessage(guess < secretNumber ? '📉 Too low!!!' : '📈 Too High!!!');
       score--;
       setScoreElement(score);
     }
